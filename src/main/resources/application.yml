@@ -1,0 +1,31 @@
+spring:
+  datasource:
+    url: jdbc:mysql://localhost:3306/JWT?serverTimezone=Asia/Seoul
+    username: root
+    password:
+    driver-class-name: com.mysql.cj.jdbc.Driver
+  jpa:
+    hibernate:
+      ddl-auto: none
+    properties:
+      hibernate:
+        dialect: org.hibernate.dialect.MySQL8Dialect
+        format_sql: true
+        use_sql_comments: true
+  jwt:
+    secret: vnasdmvnasdlkfqw3erasdasdadfbsfgfgsfgfffq123sdadxcasdqdqwdsdafas
+      #암호화 키 저장(최대한 길게 256비트 이상)
+      #JWP 발급
+  #왜 자바파일에 등록을 안하고 yml에 등록했는가? 하드코딩 방식으로 구현하면 외부에 유출 가능성 높고, msa방식으로 여러개의 서버를 띄울 떄
+  #암호가 바뀌면 그것을 수정하기가 매우 어려워짐.
+
+
+  data:
+    web:
+      pageable:
+        default-page-size: 10
+        max-page-size: 2000
+
+logging.level:
+  org.hibernate.SQL: debug
+  org.hibernate.type: trace
